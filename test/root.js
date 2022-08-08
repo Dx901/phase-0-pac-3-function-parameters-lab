@@ -13,18 +13,5 @@ before(function(done) {
 
   const html = path.resolve(__dirname, '..', 'index.html')
 
-  jsdom.env(html, [], {
-    src: babelResult.code,
-    virtualConsole: jsdom.createVirtualConsole().sendTo(console)
-  }, (err, window) => {
-    if (err) {
-      return done(err);
-    }
-
-    Object.keys(window).forEach(key => {
-      global[key] = window[key];
-    });
-
-    return done();
-  });
+  
 });
